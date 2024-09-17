@@ -1,14 +1,12 @@
-import React, { useState } from 'react'
-import { Bold, Italic, Underline } from "lucide-react"
-
 import {
     ToggleGroup,
     ToggleGroupItem,
 } from "@/components/ui/toggle-group"
 
 const ItemPrice = ({selectedValue, setSelectedValue}:{
-    setSelectedValue:any,
-    selectedValue:any
+    //@ts-ignore
+    setSelectedValue: any,
+    selectedValue:number
 }) => {
 
     const handleChange = (value:number) => {

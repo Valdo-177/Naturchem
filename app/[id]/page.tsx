@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react'
-import product from '../../src/assets/aceite.jpg'
 import Image from 'next/image'
 import ItemPrice from '@/src/components/ItemPrice'
 import { Button } from '@/components/ui/button'

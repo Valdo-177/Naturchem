@@ -1,9 +1,8 @@
 "use client"
 import React from 'react'
-import { Brush, Check, ChevronsUpDown, Dot, Hammer, Heart, Instagram, Mail, Menu, Phone, Search, ShoppingCart } from "lucide-react";
+import { Check, Dot, Instagram, Mail, Menu, Phone, Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import logo1 from "../../assets/isovb.svg"
-import { Input } from "@/components/ui/input"
 import {
     Command,
     CommandEmpty,
@@ -101,7 +100,7 @@ const Nav = () => {
                     <div className='p-2 md:p-6'>
                         <p className='text-slate-500 mb-2 font-medium'>CATEGORÍAS</p>
                         {categoriasProduct.map(item => (
-                            <div onClick={() => handleOpenChange(false)}>
+                            <div onClick={() => handleOpenChange(false)} key={item}>
                                 <Link
                                     href={`/Category/${item}`}
                                     className={cn(`flex gap-x-2 mt-2 text-black text-sm items-center rounded-lg p-2 cursor-pointer ${desencriptarCadena(id) == item && "bg-slate-300/20"}`

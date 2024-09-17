@@ -1,18 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
-import product from '../../assets/aceite.jpg'
-import Link from 'next/link'
 import { ChevronRight } from 'lucide-react'
 
-const CardProduct = ({ tate, item = {
-    nombre: 'Producto de Prueba',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
-    codigo: '1234',
-    imagen: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/PXL_20240917_120238868.jpg?alt=media&token=9838de18-78b5-4dc1-8611-17e67351290d',
-    Precios: {
+type ItemProps = {
+    nombre: string;
+    descripcion: string;
+    codigo: string;
+    imagen: string;
+    Precios?: Record<string, string>;
+  };
+  
+  interface CardProductProps {
+    tate?: number;
+    item?: ItemProps;
+  }
+  
+  const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
+      nombre: 'Producto de Prueba',
+      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
+      codigo: '1234',
+      imagen: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/PXL_20240917_120238868.jpg?alt=media&token=9838de18-78b5-4dc1-8611-17e67351290d',
+      Precios: {
         "Precio X Mayor": "13.000"
-    }
-} }: any) => {
+      }
+  } }) => {
 
 
     return (

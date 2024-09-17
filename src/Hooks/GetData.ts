@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { collection, addDoc, getDocs } from "firebase/firestore";
-import { db, collectionRef } from "../../lib/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../lib/firebase";
 
 const GetData = (collectionName:string) => {
     const collectionUser = collection(db, collectionName);
@@ -10,21 +10,25 @@ const GetData = (collectionName:string) => {
     useEffect(() => {
         getDocs(collectionUser)
             .then((querySnapshot) => {
-                const docs: any = [];
+                //@ts-ignore
+                const docs = [];
                 querySnapshot.forEach((doc) => {
                     docs.push({ id: doc.id, ...doc.data() });
                 });
+                //@ts-ignore
                 setDocuments(docs);
                 setLoading(false); // Una vez que se^` obtienen los documentos, se detiene la carga
             })
             .catch((error) => {
+                console.log('erro', error)
                 setLoading(false); // En caso de error, se detiene la carga
             });
     }, []);
 
 
     return {
-        documents
+        documents,
+        loading
     }
 }
 

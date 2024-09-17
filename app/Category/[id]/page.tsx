@@ -2,7 +2,6 @@
 import CardProduct from '@/src/components/CardProduct'
 import GetData from '@/src/Hooks/GetData'
 import { ChevronRight } from 'lucide-react'
-import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -19,7 +18,7 @@ const Category = () => {
     return decodeURIComponent(cadena.replace(/%20/g, '_'));
   }
 
-  const GotoDetailsProduct = (item: any) => {
+  const GotoDetailsProduct = (item:any) => {
     router.push(`/${item}`)
   }
   return (
