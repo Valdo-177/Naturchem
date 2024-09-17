@@ -26,7 +26,7 @@ const CardProduct = ({ tate, item = {
                 <h4 className={`sm:text-[20px] font-[600] text-container ${tate == 2 ? 'text-[15px]' : 'text-[20px]'}`}>{item.nombre}</h4>
                 <p className={`text-[#000000e6] text-[1rem] font-light h-[6rem] overflow-hidden ${tate == 2 && 'hidden sm:block'}`} >{item.descripcion}</p>
                 <div className='flex items-center justify-between'>
-                    {Object.entries(item.Precios || {}).slice(0, 2).map(([key, value]) => (
+                    {Object.entries(item.Precios || {}).slice(0, 2).map(([key, value]:any) => (
                         <div key={key} className='flex items-center flex-col mb-2'>
                             <span className='sm:text-[1.2rem] font-normal'>{key}</span>
                             <span className='sm:text-[1.2rem] text-[#1c1c1c] font-extralight'>{value}</span>
