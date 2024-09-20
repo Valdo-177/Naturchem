@@ -3,12 +3,17 @@ import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
 
 interface Product {
+  nombre: string;
+  descripcion: string;
+  codigo: string;
+  imagen: string;
+  Precios: {
+    [key: string]: string;
+  };
   id: string;
-  name: string;
-  price: number;
-  description: string;
-  // Agrega aquí otras propiedades que puedan tener tus productos
+  productPrice: string[];
 }
+
 
 const GetProduct = (productId: string) => {
   const [product, setProduct] = useState<Product | null>(null);

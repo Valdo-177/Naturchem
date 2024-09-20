@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { db, collectionRef } from "../../lib/firebase";
+import { getDocs, query, where } from "firebase/firestore";
+import { collectionRef } from "../../lib/firebase";
 
 interface Document {
+  nombre: string;
+  descripcion: string;
   id: string;
-  Categoria?: string;
-  // Agrega aquí otras propiedades que puedan tener tus documentos
-}
+  codigo: string;
+  imagen: string;
+  Precios?: Record<string, string>;
+};
 
 const GetData = (category: string) => {
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -23,6 +26,7 @@ const GetData = (category: string) => {
         if (!cancel) {
           const docs: Document[] = [];
           querySnapshot.forEach((doc) => {
+            // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
             docs.push({ id: doc.id, ...doc.data() });
           });
           setDocuments(docs);

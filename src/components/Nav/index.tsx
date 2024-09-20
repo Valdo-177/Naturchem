@@ -89,7 +89,7 @@ const Nav = () => {
         "Modelos-Envases",
     ]
 
-    function desencriptarCadena(cadena: any) {
+    function desencriptarCadena(cadena:string) {
         return decodeURIComponent(cadena?.replace(/%20/g, ' '));
     }
 
@@ -103,6 +103,7 @@ const Nav = () => {
                             <div onClick={() => handleOpenChange(false)} key={item}>
                                 <Link
                                     href={`/Category/${item}`}
+                                    // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
                                     className={cn(`flex gap-x-2 mt-2 text-black text-sm items-center rounded-lg p-2 cursor-pointer ${desencriptarCadena(id) == item && "bg-slate-300/20"}`
 
                                     )}

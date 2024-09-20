@@ -36,7 +36,7 @@ export default function Home() {
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Mas pedidos</h4>
               <div className="grid sm:grid-cols-4 grid-cols-2 gap-3">
                 {GetData("Aceite esencial").documents.map((item, index) => (
-                  <CardProduct tate={2} item={item} key={index}/>
+                  <CardProduct tate={2} item={item} key={index} />
                 ))}
               </div>
             </div>
@@ -47,7 +47,9 @@ export default function Home() {
             <div className="min-h-[39rem] flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Aceite esencial</h4>
               <div className="grid sm:grid-cols-5 grid-cols-2 gap-3">
-                k
+                {GetData("Aceite esencial").documents.map((item, index) => (
+                  <CardProduct tate={2} item={item} key={index} />
+                ))}
               </div>
             </div>
             <div className="min-h-[39rem] flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
