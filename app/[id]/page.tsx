@@ -4,11 +4,17 @@ import Image from 'next/image'
 import ItemPrice from '@/src/components/ItemPrice'
 import { Button } from '@/components/ui/button'
 import { Minus, Plus } from 'lucide-react'
+import GetProduct from '@/src/Hooks/GetProduct'
+import { useParams } from 'next/navigation'
 
 const Products = () => {
+  const path  = useParams()
   const [counter, setCounter] = useState(0)
   const [selectedValue, setSelectedValue] = useState<number>(0)
+  const {product} = GetProduct(path.id)
 
+  console.log(path.id)
+  console.log(product)
   const addCounter = (date: string) => {
     if (date == '+') {
       setCounter(counter + 1)

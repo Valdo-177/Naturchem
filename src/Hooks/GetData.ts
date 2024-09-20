@@ -1,36 +1,87 @@
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../lib/firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db, collectionRef } from "../../lib/firebase";
 
-const GetData = (collectionName:string) => {
-    const collectionUser = collection(db, collectionName);
-    const [documents, setDocuments] = useState([]);
-    const [loading, setLoading] = useState(true); // Variable de estado para controlar la carga
-
-    useEffect(() => {
-        getDocs(collectionUser)
-            .then((querySnapshot) => {
-                //@ts-ignore
-                const docs = [];
-                querySnapshot.forEach((doc) => {
-                    docs.push({ id: doc.id, ...doc.data() });
-                });
-                //@ts-ignore
-                setDocuments(docs);
-                setLoading(false); // Una vez que se^` obtienen los documentos, se detiene la carga
-            })
-            .catch((error) => {
-                console.log('erro', error)
-                setLoading(false); // En caso de error, se detiene la carga
-            });
-    }, []);
-
-
-    return {
-        documents,
-        loading
-    }
+interface Document {
+  id: string;
+  Categoria?: string;
+  // Agrega aquí otras propiedades que puedan tener tus documentos
 }
 
+const GetData = (category: string) => {
+  const [documents, setDocuments] = useState<Document[]>([]);
+  const [loading, setLoading] = useState(true);
 
-export default GetData
+  useEffect(() => {
+    let cancel = false;
+
+    const fetchDocuments = async () => {
+      try {
+        const q = query(collectionRef, where("Categoria", "==", category));
+        const querySnapshot = await getDocs(q);
+        
+        if (!cancel) {
+          const docs: Document[] = [];
+          querySnapshot.forEach((doc) => {
+            docs.push({ id: doc.id, ...doc.data() });
+          });
+          setDocuments(docs);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Error al obtener documentos:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchDocuments();
+
+    return () => {
+      cancel = true;
+    };
+  }, [category]);
+
+  return {
+    documents,
+    loading
+  };
+};
+
+export default GetData;
+
+
+// import { useEffect, useState } from "react";
+// import { collection, getDocs } from "firebase/firestore";
+// import { db, collectionRef } from "../../lib/firebase";
+
+// const GetData = () => {
+//     const [documents, setDocuments] = useState([]);
+//     const [loading, setLoading] = useState(true); // Variable de estado para controlar la carga
+
+//     useEffect(() => {
+//         getDocs(collectionRef)
+//             .then((querySnapshot) => {
+//                 //@ts-ignore
+//                 const docs = [];
+//                 querySnapshot.forEach((doc) => {
+//                     docs.push({ id: doc.id, ...doc.data() });
+//                 });
+//                 //@ts-ignore
+//                 setDocuments(docs);
+//                 setLoading(false); // Una vez que se^` obtienen los documentos, se detiene la carga
+//             })
+//             .catch((error) => {
+//                 console.log('erro', error)
+//                 setLoading(false); // En caso de error, se detiene la carga
+//             });
+//     }, []);
+
+
+//     return {
+//         documents,
+//         loading
+//     }
+// }
+
+
+// export default GetData

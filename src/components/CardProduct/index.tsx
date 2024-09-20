@@ -1,33 +1,40 @@
 import Image from 'next/image'
 import React from 'react'
 import { ChevronRight } from 'lucide-react'
+import { useRouter } from 'next/navigation';
 
 type ItemProps = {
     nombre: string;
     descripcion: string;
+    id:string;
     codigo: string;
     imagen: string;
     Precios?: Record<string, string>;
-  };
-  
-  interface CardProductProps {
+};
+
+interface CardProductProps {
     tate?: number;
     item?: ItemProps;
-  }
-  
-  const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
-      nombre: 'Producto de Prueba',
-      descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
-      codigo: '1234',
-      imagen: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/PXL_20240917_120238868.jpg?alt=media&token=9838de18-78b5-4dc1-8611-17e67351290d',
-      Precios: {
-        "Precio X Mayor": "13.000"
-      }
-  } }) => {
+}
 
+const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
+    nombre: 'Producto de Prueba',
+    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
+    codigo: '1234',
+    imagen: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/PXL_20240917_120238868.jpg?alt=media&token=9838de18-78b5-4dc1-8611-17e67351290d',
+    Precios: {
+        "Precio X Mayor": "13.000"
+    },
+    id: "siohdkhsduhsdj"
+} }) => {
+    const router = useRouter()
+ 
+    const GotoDetails = (item:string) => {
+        router.push(`/${item}`)
+    }
 
     return (
-        <article className='max-w-[22rem] w-auto bg-white text-black overflow-hidden cursor-pointer'>
+        <article className='max-w-[22rem] w-auto bg-white text-black overflow-hidden cursor-pointer' onClick={()=> GotoDetails(item.id)}>
             <div className='relative h-[10rem] sm:h-[13rem]'>
                 <Image className='w-[100%] h-[100%] object-cover' src={item.imagen} alt="Logo de naturchem" width={500} height={500} />
             </div>
@@ -37,7 +44,7 @@ type ItemProps = {
                 <h4 className={`sm:text-[20px] font-[600] text-container ${tate == 2 ? 'text-[15px]' : 'text-[20px]'}`}>{item.nombre}</h4>
                 <p className={`text-[#000000e6] text-[1rem] font-light h-[6rem] overflow-hidden ${tate == 2 && 'hidden sm:block'}`} >{item.descripcion}</p>
                 <div className='flex items-center justify-between'>
-                    {Object.entries(item.Precios || {}).slice(0, 2).map(([key, value]:any) => (
+                    {Object.entries(item.Precios || {}).slice(0, 2).map(([key, value]: any) => (
                         <div key={key} className='flex items-center flex-col mb-2'>
                             <span className='sm:text-[1.2rem] font-normal'>{key}</span>
                             <span className='sm:text-[1.2rem] text-[#1c1c1c] font-extralight'>{value}</span>
