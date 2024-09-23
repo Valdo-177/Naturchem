@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../lib/firebase";
+import productImg from "../assets/aceite.jpg"
 
-interface Product {
+export interface ProductType {
   nombre: string;
   descripcion: string;
   codigo: string;
@@ -11,12 +12,20 @@ interface Product {
     [key: string]: string;
   };
   id: string;
-  productPrice: string[];
 }
 
 
-const GetProduct = (productId: string) => {
-  const [product, setProduct] = useState<Product | null>(null);
+export const GetProduct = (productId: string) => {
+  const [product, setProduct] = useState<ProductType | null>({
+    nombre: 'Producto de Prueba',
+    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
+    codigo: '1234',
+    imagen: productImg.src,
+    Precios: {
+      "Precio X Mayor": "13.000"
+    },
+    id: "siohdkhsduhsdj",
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,9 +42,18 @@ const GetProduct = (productId: string) => {
           setProduct({
             id: docSnap.id,
             ...productData
-          } as Product);
+          } as ProductType);
         } else {
-          setProduct(null);
+          setProduct({
+            nombre: 'Producto de Prueba',
+            descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
+            codigo: '1234',
+            imagen: productImg.src,
+            Precios: {
+              "Precio X Mayor": "13.000"
+            },
+            id: "siohdkhsduhsdj",
+          });
         }
 
         setLoading(false);
@@ -60,4 +78,3 @@ const GetProduct = (productId: string) => {
   };
 };
 
-export default GetProduct;

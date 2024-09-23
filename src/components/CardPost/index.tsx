@@ -1,15 +1,28 @@
 import React from 'react'
-import product from '../../assets/aceite.jpg'
+import product from '../../assets/aceite-esencial.webp'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
+import { useRouter } from 'next/navigation'
 
-const CardPost = () => {
+interface CardPostProps {
+    item?: {
+        label: string;
+        subTitle: string;
+    }
+}
+
+const CardPost = ({item}:CardPostProps) => {
+    const router = useRouter()
     return (
-        <article className='relative overflow-hidden h-full'>
-            <Image className='w-[100%] h-[100%] object-cover opacity-20' src={product} alt="Logo de naturchem" />
-            <div className='absolute z-20 top-3 left-3 w-[80%]'>
-                <span className='text-[0.7rem] sm:text-[0.8rem]'>Cuidado de la piel</span>
-                <h4 className={`sm:text-[20px] font-[600]`}>Como el Aceite esencial calendula es un Crack</h4>
-                <span className='text-[0.7rem] sm:text-[0.8rem]'>13/09/2024</span>
+        <article className='relative overflow-hidden h-full text-white rounded-[8px]'>
+            <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={product} alt="Logo de naturchem" />
+            <div className='absolute z-20 bg-[#23232378] w-full h-full'></div>
+            <div className='absolute z-30 top-3 left-3 w-[80%] h-[90%] flex flex-col items-start justify-between'>
+                <div>
+                    <span className='text-[0.7rem] sm:text-[0.8rem]'>{item?.subTitle}</span>
+                    <h4 className={`sm:text-[22px] font-[600]`}>{item?.label}</h4>
+                </div>
+                <Button className='bg-fondo hover:bg-[#738308]' onClick={() => router.push(`/Category/${item?.label}`)}>Ver categoría</Button>
             </div>
         </article>
     )

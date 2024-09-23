@@ -117,7 +117,10 @@ const Nav = () => {
                     <Separator />
 
                     <div className='text-center p-6'>
-                        <Button variant='outline' className='w-full flex items-center gap-3 bg-fondo hover:bg-[#738308] hover:text-white'>
+                        <Button variant='outline' className='w-full flex items-center gap-3 bg-fondo hover:bg-[#738308] hover:text-white' onClick={() => {
+                            roter.push('/car')
+                            setIsOpen(false)
+                        }}>
                             <ShoppingCart/>
                             Ver pedido
                         </Button>
@@ -163,7 +166,7 @@ const Nav = () => {
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex items-center justify-between">
                         <Image src={logo1} width={50} height={50} alt="Logo de naturchem" onClick={() => roter.push('/')} />
                         <div className="hidden sm:flex items-center gap-2 text-fondo">
-                            <ShoppingCart size={25} />
+                            <ShoppingCart size={25} onClick={() => roter.push('/car')}/>
                             <Popover open={open} onOpenChange={setOpen}>
                                 <PopoverTrigger asChild>
                                     <Button
