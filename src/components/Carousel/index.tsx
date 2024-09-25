@@ -34,7 +34,7 @@ const CarouselComponent = () => {
                     <CarouselItem key={index} className="h-full">
                         <div className="h-full">
                             <Card className="h-full">
-                                <CardContent className="px-0 py-0 w-full bg-red-300 h-full flex aspect-square items-center justify-center">
+                                <CardContent className="px-0 py-0 w-full h-full flex aspect-square items-center justify-center">
                                 <Image src={carrucell} className="w-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
                                 </CardContent>
                             </Card>

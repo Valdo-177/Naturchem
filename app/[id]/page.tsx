@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Minus, Plus } from 'lucide-react'
 import { GetProduct } from '@/src/Hooks/GetProduct'
 import { useParams } from 'next/navigation'
+import { toast } from 'sonner'
 
 interface ProductType {
   nombre: string;
@@ -100,12 +101,22 @@ const Products = () => {
           <div className='gap-3 w-full sm:w-[53%] flex flex-col items-start'>
             <span className='text-[0.7rem] sm:text-[0.8rem]'>{product?.codigo}</span>
             <h4 className='text-[25px] font-[600] w-full text-start text-black cursor-pointer'>{product?.nombre}</h4>
-            <p className={`text-[#000000e6] text-[1rem] font-light overflow-hidden sm:w-[30rem]`} >{product?.descripcion}</p>
+            <p className={`text-[#000000e6] sm:text-[1rem] text-[15px] font-light overflow-hidden sm:w-[30rem]`} >{product?.descripcion}</p>
+            <p className={`text-[#000000e6] sm:text-[1rem] text-[12px] font-normal overflow-hidden sm:w-[30rem]`} >Selecciona la presentacion del producto</p>
             <div className='flex items-center justify-center w-full sm:w-auto'>
               <ItemPrice selectedValue={selectedValue} setSelectedValue={setSelectedValue} productPrice={product?.Precios || { "": "" }} />
             </div>
             <div className='mt-5 flex items-center justify-between sm:justify-normal gap-3 w-full sm:w-auto'>
-              <Button className='bg-fondo hover:bg-[#738308] p-5' onClick={() => setLocalData()}>agregar al pedido</Button>
+              <Button className='bg-fondo hover:bg-[#738308] p-5' onClick={() => {
+                if (selectedValue.length == 0) {
+                  toast("Selecciona una presetacion por favor")
+                } else {
+                  setLocalData()
+                  toast("Producto agregado al pedido", {
+                    description: `${product?.nombre} x ${counter}`,
+                  })
+                }
+              }}>agregar al pedido</Button>
               <Button className='bg-[#EBEBEB] hover:bg-[#EBEBEB] text-black' onClick={() => addCounter('+')}><Plus size={18} /></Button>
               {counter}
               <Button className='bg-[#EBEBEB] hover:bg-[#EBEBEB] text-black' onClick={() => addCounter('-')}><Minus size={18} /></Button>

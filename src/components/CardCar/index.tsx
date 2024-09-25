@@ -1,7 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Minus, Plus } from 'lucide-react';
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
 
 const CardCar = ({ item }: {
     item: {
@@ -11,47 +9,35 @@ const CardCar = ({ item }: {
         precio: number,
         tamaño: string,
         nombre: string
+        codigo: string;
     }
 }) => {
-    const [counter, setCounter] = useState<number>(item.cantidad)
-    const [price, setPrice] = useState(item.precio)
-
 
     function truncateText(text: string) {
-        return text?.length > 23 ? `${text.slice(0, 23)}..` : text;
+        return text?.length > 26 ? `${text.slice(0, 26)}..` : text;
     }
-
-    const addCounter = (date: string) => {
-        if (date === '+') {
-            setCounter(prevCounter => prevCounter + 1)
-            setPrice(item.precioUni * (counter + 1))
-        } else {
-            if (counter > 1) {
-                setCounter(prevCounter => prevCounter - 1)
-            }
-        }
-    }
-    useEffect(() => {
-        // setPrice(counter * price)
-    }, [price])
-
 
     return (
-        <article className='sm:shadow-md rounded-[8px] flex items-center gap-1 p-3'>
-            <div className='relative h-[11rem] min-w-[8rem]'>
-                <Image className='w-[100%] h-[100%] object-cover' src={item.imagen} alt="Logo de naturchem" width={500} height={500} />
+        <article className='rounded-[8px] flex flex-col sm:flex-row items-center gap-1 sm:p-3 px-3'>
+           
+            <div className='w-full flex flex-col sm:flex-row items-center justify-between'>
+            <div className='flex items-center gap-2 w-full sm:w-[30rem]'>
+                <div className='relative sm:h-[11rem] min-w-[8rem] sm:w-[13rem]'>
+                    <Image className='w-[100%] h-[100%] object-cover' src={item.imagen} alt="Logo de naturchem" width={500} height={500} />
+                </div>
+                <div>
+                    <p className={`text-[#000000e6] text-[10px] sm:text-[12px] font-light`} >Codigo: {item.codigo}</p>
+                    <h4 className={`text-[15px] sm:text-[20px] font-[400] text-container w-[12rem] sm:max-w-[23rem]`}>{truncateText(item.nombre)}</h4>
+                    <p className={`text-[#000000e6] text-[13px] sm:text-[20px] font-light`} >Presentación: {item.tamaño}</p>
+                    <p className={`text-[#000000e6] text-[13px] sm:text-[20px] font-light`} >Cantidad: {item.cantidad}</p>
+                </div>
             </div>
-            <div className='p-2 w-full'>
-                <h4 className={`sm:text-[20px] font-[600] text-container text-[15px]`}>{truncateText(item.nombre)}</h4>
-                <p className={`text-[#000000e6] text-[1rem] font-light`} >{item.tamaño}</p>
-                <p className={`text-[#000000e6] text-[1rem] font-light`} >Total a pagar: ${price}</p>
-                <div className='mt-5 flex items-center justify-center sm:justify-normal gap-3 w-full sm:w-auto flex-wrap'>
-                    <div className='flex gap-3 items-center'>
-                        <Button className='bg-[#EBEBEB] hover:bg-[#EBEBEB] text-black' onClick={() => addCounter('+')}><Plus size={18} /></Button>
-                        {counter}
-                        <Button className='bg-[#EBEBEB] hover:bg-[#EBEBEB] text-black' onClick={() => addCounter('-')}><Minus size={18} /></Button>
+                <div className='sm:p-2 mt-5 w-full sm:w-auto flex flex-col sm:items-end items-center'>
+                    <div className='w-full flex sm:flex-col flex-row items-center justify-between gap-1'>
+                    <p className={`text-[#000000e6] text-[15px] sm:text-[20px] font-light`} >Precio Uni: ${item.precioUni}</p>
+                    <p className={`text-[#000000e6] text-[15px] sm:text-[20px] font-light`} >Total a pagar: ${item.precio}</p>
                     </div>
-                    {/* <Button className='bg-transparent shadow-none underline hover:bg-transparent p-5 text-gray-600'>Eliminar</Button> */}
+                    <Button className='bg-transparent shadow-none underline p-0 h- 0 hover:bg-transparent text-gray-600 mb-3'>Eliminar</Button>
                 </div>
             </div>
         </article>

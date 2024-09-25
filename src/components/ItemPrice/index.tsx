@@ -35,7 +35,7 @@ const ItemPrice = ({setSelectedValue, productPrice}:{
                         <ToggleGroupItem value={value} aria-label="Toggle bold" key={key} onClick={() => handleChange(`${removeDecimalPoints(value)}/${key}`)}>
                         <div className={`cursor-pointer flex items-center justify-center gap-3 px-5 py-2 rounded-[20px]`}>
                             <span className='sm:text-[1.2rem] font-normal'>{key}</span>
-                            <span className='sm:text-[1.2rem] text-[#1c1c1c] font-extralight'>{value}</span>
+                            <span className='sm:text-[1.2rem] text-[#1c1c1c] font-extralight'>${value}</span>
                         </div>
                     </ToggleGroupItem>
                     ))}
