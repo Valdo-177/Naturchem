@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/src/components/Nav";
 import Footer from "@/src/components/Footer";
 import { Toaster } from "@/components/ui/sonner"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({
       >
         <Nav />
         {children}
+        <SpeedInsights />
         <Toaster />
         <Footer />
       </body>
