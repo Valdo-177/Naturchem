@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Encuentra todos nuestros productos",
   openGraph: {
     title: "Naturchem 🌿| Jabones de glicerina, Materias primas cosmeticas",
-    description: "Menú virtual del restaurante La Terraza De la Casa",
+    description: "Encuentra todos nuestros productos",
     url: "https://menu-la-terraza-de-la-casa.vercel.app/",
     siteName: "Naturchem Store🌿",
     images: [
