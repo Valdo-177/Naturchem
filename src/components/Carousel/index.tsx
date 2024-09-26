@@ -1,6 +1,7 @@
 import * as React from "react"
 import Autoplay from "embla-carousel-autoplay"
 import carrucell from "../../assets/carrucel1.png"
+import carrucellMobil from "../../assets/Carru.png"
 import { Card, CardContent } from "@/components/ui/card"
 import {
     Carousel,
@@ -35,7 +36,8 @@ const CarouselComponent = () => {
                         <div className="h-full">
                             <Card className="h-full">
                                 <CardContent className="px-0 py-0 w-full h-full flex aspect-square items-center justify-center">
-                                <Image src={carrucell} className="w-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
+                                <Image src={carrucell} className="hidden sm:block w-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
+                                <Image src={carrucellMobil} className="block sm:hiddenw-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
                                 </CardContent>
                             </Card>
                         </div>

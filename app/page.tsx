@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <main>
         <section className="bg-[#EBEBEB] text-black">
-          <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[8rem] w-auto mx-auto">
+          <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[22rem] w-full px-2 mx-auto">
             <CarouselComponent />
           </div>
         </section>
@@ -89,7 +89,7 @@ export default function Home() {
           </div> */}
         </section>
         <section className="bg-[#EBEBEB] text-black">
-          <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[8rem] w-auto mx-auto">
+          <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[22rem] w-full px-2 mx-auto">
             <CarouselComponent />
           </div>
         </section>

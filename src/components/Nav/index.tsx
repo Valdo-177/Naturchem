@@ -138,7 +138,7 @@ const Nav = () => {
     return (
         <>
             <header className="bg-fondo">
-                <section className="hidden sm:block px-5 py-5 sm:px-10 sm:py-5">
+                <section className="hidden sm:block px-5 sm:px-10 py-5">
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2">
                         <div className="flex flex-col sm:flex-row items-center sm:gap-7 gap-3" >
                             <div className="flex items-center gap-2">
@@ -162,7 +162,7 @@ const Nav = () => {
                         </div>
                     </div>
                 </section>
-                <section className="bg-[#EBEBEB] text-black px-5 py-5 sm:px-10 sm:py-5">
+                <section className="bg-[#EBEBEB] text-black px-5 py-3 sm:px-10 sm:py-5">
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex items-center justify-between">
                         <Image src={logo1} width={50} height={50} alt="Logo de naturchem" onClick={() => roter.push('/')} />
                         <div className="hidden sm:flex items-center gap-2 text-fondo">

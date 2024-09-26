@@ -38,7 +38,6 @@ const Car = () => {
     })
     .join(" %0a");
   const Url = `https://wa.me/3128158494?text=${mensajeWhatsApp}`;
-  console.log(Url)
 
   function DialogCloseButton() {
     return (
@@ -121,10 +120,10 @@ const Car = () => {
   return (
     <>
       <section className="bg-[#EBEBEB] text-black">
-        <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[8rem] w-auto mx-auto">
-          <CarouselComponent />
-        </div>
-      </section>
+          <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[22rem] w-full px-2 mx-auto">
+            <CarouselComponent />
+          </div>
+        </section>
       <section className="bg-[#EBEBEB] text-black px-2 py-5 sm:px-10 sm:py-5">
         <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex items-center justify-center flex-col gap-3">
           <div className='flex-col flex items-center w-full gap-1'>
