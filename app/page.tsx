@@ -8,7 +8,6 @@ import { CategorySection } from "@/lib/Data";
 import Image from "next/image";
 import Cardt from "../src/assets/imagenNostros.png"
 import { Skeleton } from "@/components/ui/skeleton";
-import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const { documents } = GetData("Aceite esencial");
@@ -20,7 +19,7 @@ export default function Home() {
             <CarouselComponent />
           </div>
         </section>
-        <section className="bg-[#EBEBEB] text-black">
+        <section className="bg-[#EBEBEB] text-black mt-[4rem]">
           <div className="xl:w-[75rem] w-auto mx-auto p-5">
             <div className="flex flex-col items-center justify-between gap-5">
               <div className="flex items-center gap-3 flex-col">
@@ -40,7 +39,7 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-fondo">
-          <div className="xl:w-[75rem] w-auto mx-auto p-5 flex items-center justify-between">
+          <div className="xl:w-[55rem] w-auto mx-auto p-5 flex items-center justify-between">
             <h3 className="text-white text-xl font-semibold w-[15rem]">Somos una compañia de caracter internacional</h3>
             <div className="flex items-center gap-4 text-white">
               <div>
@@ -63,7 +62,7 @@ export default function Home() {
         <section className="bg-[#EBEBEB] text-black">
           <div className="xl:w-[75rem] w-auto mx-auto p-5">
             <div className="relative bg-red-800 w-[18rem] h-[30rem]">
-            <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Cardt} alt="Logo de naturchem" />
+              <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Cardt} alt="Logo de naturchem" />
             </div>
           </div>
         </section>
@@ -75,17 +74,19 @@ export default function Home() {
             </div>
             <div className="sm:w-[80%] flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Mas pedidos</h4>
+
               <div className="grid sm:grid-cols-4 grid-cols-2 gap-3">
-                {documents.map((item, index) => (
+                {documents.slice(0, 4).map((item, index) => (
                   <CardProduct tate={2} item={item} key={index} />
                 ))}
               </div>
               {documents.length == 0 && <div className="grid sm:grid-cols-4 grid-cols-2 gap-3">
-                <Skeleton className="h-[33.7rem] rounded-none w-[16rem]" />
-                <Skeleton className="h-[33.7rem] rounded-none w-[16rem]" />
-                <Skeleton className="h-[33.7rem] rounded-none w-[16rem]" />
-                <Skeleton className="h-[33.7rem] rounded-none w-[16rem]" />
+                <Skeleton className="h-[33.7rem] rounded-none w-full" />
+                <Skeleton className="h-[33.7rem] rounded-none w-full" />
+                <Skeleton className="h-[33.7rem] rounded-none w-full" />
+                <Skeleton className="h-[33.7rem] rounded-none w-full" />
               </div>}
+
             </div>
           </div>
         </section>
@@ -120,7 +121,7 @@ export default function Home() {
             <CarouselComponent />
           </div>
         </section>
-       
+
       </main>
     </>
   );

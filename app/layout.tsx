@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={inter.className}
+        className={`${inter.className} bg-[#EBEBEB] min-w-[100vh]`}
       >
         <Nav />
         {children}
