@@ -23,11 +23,9 @@ const CarouselComponent = () => {
             className="w-full h-full max-h-full"
             onMouseEnter={() => {
                 plugin.current.stop
-                console.log('hello aki tamos')
             }}
             onMouseLeave={() => {
                 plugin.current.play
-                console.log('hello no tamos aki')
             }}
         >
             <CarouselContent className="h-full max-h-full">
@@ -37,7 +35,7 @@ const CarouselComponent = () => {
                             <Card className="h-full">
                                 <CardContent className="px-0 py-0 w-full h-full flex aspect-square items-center justify-center">
                                 <Image src={carrucell} className="hidden sm:block w-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
-                                <Image src={carrucellMobil} className="block sm:hiddenw-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
+                                <Image src={carrucellMobil} className="block sm:hidden w-full h-full" width={4000} height={4000} alt="Logo de naturchem"/>
                                 </CardContent>
                             </Card>
                         </div>

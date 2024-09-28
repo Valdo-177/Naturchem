@@ -138,35 +138,38 @@ const Nav = () => {
     return (
         <>
             <header className="bg-fondo">
-                <section className="hidden sm:block px-5 sm:px-10 py-5">
+                <section className="hidden sm:block px-5 sm:px-10 py-2">
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2">
                         <div className="flex flex-col sm:flex-row items-center sm:gap-7 gap-3" >
                             <div className="flex items-center gap-2">
-                                <Phone />
-                                <p>0000000000</p>
+                                <Phone size={16} strokeWidth={1.6}/>
+                                <p className='text-sm font-extralight'>0000000000</p>
                             </div>
                             <div className="flex items-center gap-2" >
-                                <Mail />
-                                <p>correodeeelos@gmail.com</p>
+                                <Mail size={16} strokeWidth={1.6}/>
+                                <p className='text-sm font-extralight'>correodeeelos@gmail.com</p>
                             </div>
                         </div>
                         <div>
-                            <h3 className="font-semibold text-center">Síguenos y no te pierdas la oportunidad de ganar descuentos</h3>
+                            <h3 className="font-extralight text-sm text-center">Síguenos y no te pierdas la oportunidad de ganar descuentos</h3>
                         </div>
                         <div className="flex items-center gap-6" >
-                            <p>Síguenos:</p>
-                            <a href="https://www.instagram.com/naturchem.oficial/" className="flex items-center gap-2" >
-                                <Instagram />
-                                <p>naturchem.oficial</p>
+                            <p className='text-sm font-extralight'>Síguenos:</p>
+                            <a href="https://www.instagram.com/naturchem.oficial/" target='_blank' className="flex items-center gap-2" >
+                                <Instagram size={16} strokeWidth={1.6}/>
+                                <p className='text-sm font-extralight'>naturchem.oficial</p>
                             </a>
                         </div>
                     </div>
                 </section>
-                <section className="bg-[#EBEBEB] text-black px-5 py-3 sm:px-10 sm:py-5">
+                <section className="bg-[#EBEBEB] text-black px-5 py-5 sm:px-10 sm:py-2">
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex items-center justify-between">
-                        <Image src={logo1} width={50} height={50} alt="Logo de naturchem" onClick={() => roter.push('/')} />
+                        <Image src={logo1} width={40} height={40} alt="Logo de naturchem" onClick={() => roter.push('/')} />
                         <div className="hidden sm:flex items-center gap-2 text-fondo">
-                            <ShoppingCart size={25} onClick={() => roter.push('/car')}/>
+                            <div className='flex items-center gap-2 cursor-pointer hover:underline'>
+                            <ShoppingCart size={16} onClick={() => roter.push('/car')}/>
+                                <p className='text-sm'>Ver tu pedido</p>
+                            </div>
                             <Popover open={open} onOpenChange={setOpen}>
                                 <PopoverTrigger asChild>
                                     <Button
@@ -178,6 +181,7 @@ const Nav = () => {
                                         {value
                                             ? categorias.find((categorias) => categorias.value === value)?.label
                                             : "Buscar categoría"}
+                                            <Search size={16}/>
                                     </Button>
                                 </PopoverTrigger>
                                 <PopoverContent className="w-[200px] p-0">
@@ -210,7 +214,6 @@ const Nav = () => {
                                     </Command>
                                 </PopoverContent>
                             </Popover>
-                            <Search size={25}/>
                         </div>
                         <div className='sm:hidden'>
                             <Sheet open={isOpen} onOpenChange={handleOpenChange}>

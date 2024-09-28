@@ -6,8 +6,9 @@ import GetData from "@/src/Hooks/GetData";
 import CarouselComponent from "@/src/components/Carousel";
 import { CategorySection } from "@/lib/Data";
 import Image from "next/image";
-import Cardt from "../src/assets/CardNaturchem.png"
+import Cardt from "../src/assets/imagenNostros.png"
 import { Skeleton } from "@/components/ui/skeleton";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const { documents } = GetData("Aceite esencial");
@@ -21,22 +22,48 @@ export default function Home() {
         </section>
         <section className="bg-[#EBEBEB] text-black">
           <div className="xl:w-[75rem] w-auto mx-auto p-5">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div>
-                <h4 className='text-[25px] font-[600] w-full text-start text-black cursor-pointer'>Sobre Nosotros</h4>
-                <p className="w-full sm:w-[50rem] text-[14px] sm:text-[1rem]">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et deleniti asperiores odio repellat? Nihil perspiciatis ullam, facere animi, a totam maxime officia atque tempora quas voluptas quibusdam, inventore qui molestiae!
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et deleniti asperiores odio repellat? Nihil perspiciatis ullam, facere animi, a totam maxime officia atque tempora quas voluptas quibusdam, inventore qui molestiae!
+            <div className="flex flex-col items-center justify-between gap-5">
+              <div className="flex items-center gap-3 flex-col">
+                <h2 className='text-xl font-[600] w-full text-center cursor-pointer text-fondo'>¿Quienes somos?</h2>
+                <p className="w-full sm:w-[45rem] text-sm text-[#000000d1] text-center">
+                  En <span className="underline cursor-pointer">Naturchem</span>, nos dedicamos a la fabricacion y distribucion de materias primas naturales, quimicas y materiales en general usados para la elaboracion de productos artesanales para sus emprendimientos.
                   <br />
+                  Nuestro portafolio incluye insumos para elaboracion de jabones artesanales, velas de cera y parafina, resina, productos de aseo y limpieza, tratamiento de agua. tenemos un amplio catalogo de insumos de la mejor calidad para sus emprendimientos.
                   <br />
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et deleniti asperiores odio repellat? Nihil perspiciatis ullam, facere animi, a totam maxime officia atque tempora quas voluptas quibusdam, inventore qui molestiae!
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et deleniti asperiores odio repellat? Nihil perspiciatis ullam, facere animi, a totam maxime officia atque tempora quas voluptas quibusdam, inventore qui molestiae!
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Et deleniti asperiores odio repellat? Nihil perspiciatis ullam, facere animi, a totam maxime officia atque tempora quas voluptas quibusdam, inventore qui molestiae!
                 </p>
+                {/* <p> Somos uns compañia de caracter internacional presente hace 10 años em otros paises lo que nos permite llegar a uestdes con una amplia experiencia consolidados como un proveedor integral en el segmento de productos naturales y quimicos.</p> */}
               </div>
-              <div className="h-[25rem] relative w-[19.5rem]">
+              {/* <div className="h-[25rem] relative w-[19.5rem]">
                 <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Cardt} alt="Logo de naturchem" />
+              </div> */}
+            </div>
+          </div>
+        </section>
+        <section className="bg-fondo">
+          <div className="xl:w-[75rem] w-auto mx-auto p-5 flex items-center justify-between">
+            <h3 className="text-white text-xl font-semibold w-[15rem]">Somos una compañia de caracter internacional</h3>
+            <div className="flex items-center gap-4 text-white">
+              <div>
+                <span className="text-4xl">10</span>
+                <span className="text-sm">Años en otros paises</span>
               </div>
+              <div className="w-[1px] h-[3rem] bg-[#ffffff2b]" />
+              <div>
+                <span className="text-4xl">A</span>
+                <span className="text-sm">mplia experiencia</span>
+              </div>
+              <div className="w-[1px] h-[3rem] bg-[#ffffff2b]" />
+              <div>
+                <span className="text-4xl">P</span>
+                <span className="text-sm">roveedor integral</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-[#EBEBEB] text-black">
+          <div className="xl:w-[75rem] w-auto mx-auto p-5">
+            <div className="relative bg-red-800 w-[18rem] h-[30rem]">
+            <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Cardt} alt="Logo de naturchem" />
             </div>
           </div>
         </section>
@@ -93,48 +120,7 @@ export default function Home() {
             <CarouselComponent />
           </div>
         </section>
-        {/* <section className="px-2 py-5 sm:px-10 sm:py-5 bg-[#232323]">
-          <div className="flex flex-col 2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto gap-4">
-          <div className="flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
-              <h4 className='text-[20px] font-[600] w-full text-start text-black'>Aceite esencial</h4>
-              <div className="grid sm:grid-cols-5 grid-cols-2 gap-3">
-                {GetData("Aceite esencial").documents.map((item, index) => (
-                  <CardProduct tate={2} item={item} key={index} />
-                  ))}
-                  </div>
-            </div>
-            <div className="flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
-              <h4 className='text-[20px] font-[600] w-full text-start text-black'>Aceite</h4>
-              <div className="grid sm:grid-cols-5 grid-cols-2 gap-3">
-              <CardProduct tate={2} />
-              <CardProduct tate={2} />
-              <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-              </div>
-            </div>
-            <div className="flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
-              <h4 className='text-[20px] font-[600] w-full text-start text-black'>Extracto</h4>
-              <div className="grid sm:grid-cols-5 grid-cols-2 gap-3">
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-              </div>
-            </div>
-            <div className="flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
-              <h4 className='text-[20px] font-[600] w-full text-start text-black'>Base de glicerina-ceras-parafinas</h4>
-              <div className="grid sm:grid-cols-5 grid-cols-2 gap-3">
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-                <CardProduct tate={2} />
-              </div>
-            </div>
-          </div>
-        </section> */}
+       
       </main>
     </>
   );
