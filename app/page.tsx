@@ -6,7 +6,10 @@ import GetData from "@/src/Hooks/GetData";
 import CarouselComponent from "@/src/components/Carousel";
 import { CategorySection } from "@/lib/Data";
 import Image from "next/image";
-import Cardt from "../src/assets/imagenNostros.png"
+import Natu1 from "../src/assets/Natu1.jpeg"
+import Natu2 from "../src/assets/Natu2.jpeg"
+import Natu3 from "../src/assets/Natu3.jpeg"
+import Natu4 from "../src/assets/Natu4.jpeg"
 import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
@@ -30,28 +33,24 @@ export default function Home() {
                   Nuestro portafolio incluye insumos para elaboracion de jabones artesanales, velas de cera y parafina, resina, productos de aseo y limpieza, tratamiento de agua. tenemos un amplio catalogo de insumos de la mejor calidad para sus emprendimientos.
                   <br />
                 </p>
-                {/* <p> Somos uns compañia de caracter internacional presente hace 10 años em otros paises lo que nos permite llegar a uestdes con una amplia experiencia consolidados como un proveedor integral en el segmento de productos naturales y quimicos.</p> */}
               </div>
-              {/* <div className="h-[25rem] relative w-[19.5rem]">
-                <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Cardt} alt="Logo de naturchem" />
-              </div> */}
             </div>
           </div>
         </section>
         <section className="bg-fondo">
-          <div className="xl:w-[55rem] w-auto mx-auto p-5 flex items-center justify-between">
+          <div className="xl:w-[55rem] w-auto mx-auto p-5 flex flex-col sm:flex-row items-center justify-between">
             <h3 className="text-white text-xl font-semibold w-[15rem]">Somos una compañia de caracter internacional</h3>
-            <div className="flex items-center gap-4 text-white">
+            <div className="flex items-center gap-4 text-white flex-col sm:flex-row">
               <div>
                 <span className="text-4xl">10</span>
                 <span className="text-sm">Años en otros paises</span>
               </div>
-              <div className="w-[1px] h-[3rem] bg-[#ffffff2b]" />
+              <div className="w-[1px] h-[3rem] bg-[#ffffff2b] hidden sm:block" />
               <div>
                 <span className="text-4xl">A</span>
                 <span className="text-sm">mplia experiencia</span>
               </div>
-              <div className="w-[1px] h-[3rem] bg-[#ffffff2b]" />
+              <div className="w-[1px] h-[3rem] bg-[#ffffff2b] hidden sm:block" />
               <div>
                 <span className="text-4xl">P</span>
                 <span className="text-sm">roveedor integral</span>
@@ -59,23 +58,38 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="bg-[#EBEBEB] text-black">
-          <div className="xl:w-[75rem] w-auto mx-auto p-5">
-            <div className="relative bg-red-800 w-[18rem] h-[30rem]">
-              <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Cardt} alt="Logo de naturchem" />
+        <section className="bg-[#EBEBEB] text-black hidden sm:block">
+          <div className="xl:w-[75rem] w-auto mx-auto p-5 flex items-center justify-center gap-2">
+            <div className="relative bg-red-800 w-[13rem] h-[25rem] -rotate-12 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu1} alt="Logo de naturchem" />
+            </div>
+            <div className="relative bg-red-800 w-[13rem] h-[25rem] rotate-6 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
+              <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu2} alt="Logo de naturchem" />
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+            </div>
+            <div className="relative bg-red-800 w-[13rem] h-[25rem] -rotate-6 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu3} alt="Logo de naturchem" />
+            </div>
+            <div className="relative bg-red-800 w-[13rem] h-[25rem] rotate-3 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu4} alt="Logo de naturchem" />
             </div>
           </div>
         </section>
         <section className="px-2 py-5 sm:px-10 sm:py-5 bg-[#EBEBEB]">
           <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto gap-4 flex flex-col sm:flex-row items-center">
-            <div className="sm:w-[24rem] sm:h-[39rem] flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
+            <div className="sm:w-[24rem] w-full flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Oferta especial</h4>
-              <CardProduct />
+              {GetData("Materia prima").documents.map((item, index) => (
+                  <CardProduct tate={2} item={item} key={index} />
+                ))}
             </div>
             <div className="sm:w-[80%] flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Mas pedidos</h4>
 
-              <div className="grid sm:grid-cols-4 grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-4 grid-cols-2 gap-3"> 
                 {documents.slice(0, 4).map((item, index) => (
                   <CardProduct tate={2} item={item} key={index} />
                 ))}

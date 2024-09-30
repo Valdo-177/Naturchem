@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { ChevronRight } from 'lucide-react'
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 type ItemProps = {
     nombre: string;
@@ -40,14 +41,14 @@ const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
             </div>
 
             <div className='sm:px-5 px-2 py-5 flex flex-col gap-2 '>
-                <span className='text-[0.7rem] sm:text-[0.8rem]'>{item.codigo}</span>
-                <h4 className={`sm:text-[20px] font-[600] text-container ${tate == 2 ? 'text-[15px]' : 'text-[20px]'}`}>{item.nombre}</h4>
-                <p className={`text-[#000000e6] sm:text-[1rem] text-[15px] font-light h-[6rem] overflow-hidden ${tate == 2 && 'hidden sm:block'}`} >{item.descripcion}</p>
+                <span className='text-[12px]'>{item.codigo}</span>
+                <h4 className={`text-[16px] font-[600] text-container`}>{item.nombre}</h4>
+                <p className={`text-[#000000e6] text-[12px] font-extralight h-[6rem] overflow-hidden ${tate == 2 && 'hidden sm:block'}`} >{item.descripcion}</p>
                 <div className='flex items-center justify-between'>
                     {Object.entries(item.Precios || {}).slice(0, 2).map(([key, value]: string[]) => (
                         <div key={key} className='flex items-center flex-col mb-2'>
-                            <span className='sm:text-[1.2rem] text-[14px] font-normal'>{key}</span>
-                            <span className='sm:text-[1.2rem] text-[14px] text-[#1c1c1c] font-extralight'>${value}</span>
+                            <span className='text-[12px] font-normal'>{key}</span>
+                            <span className='text-[14px] text-[#1c1c1c] font-extralight'>${value}</span>
                         </div>
                     ))}
                 </div>
@@ -56,7 +57,7 @@ const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
             </div>
             <div className='sm:px-5 px-2 py-3 sm:py-5 border-t-2'>
                 <div className='flex items-center gap-2 text-[#23A6F0] justify-center'>
-                    <span className='font-bold underline text-container text-[14px] sm:text-[1pc]'>Ver más sobre el producto</span>
+                    <Link href={""} className='font-bold underline text-container text-[12px]'>Ver más sobre el producto</Link>
                     <ChevronRight />
                 </div>
             </div>

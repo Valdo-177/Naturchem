@@ -1,5 +1,5 @@
 import React from 'react'
-import product from '../../assets/aceite-esencial.webp'
+import product from '../../assets/section1.png'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'

@@ -176,7 +176,7 @@ const Nav = () => {
                                         variant="outline"
                                         role="combobox"
                                         aria-expanded={open}
-                                        className="w-[200px] justify-between text-container "
+                                        className="w-[200px] text-sm font-normal justify-between text-container "
                                     >
                                         {value
                                             ? categorias.find((categorias) => categorias.value === value)?.label
