@@ -14,6 +14,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Home() {
   const { documents } = GetData("Aceite esencial");
+  const { documents: documents2 } = GetData("Materia prima");
   return (
     <>
       <main>
@@ -61,19 +62,19 @@ export default function Home() {
         <section className="bg-[#EBEBEB] text-black hidden sm:block">
           <div className="xl:w-[75rem] w-auto mx-auto p-5 flex items-center justify-center gap-2">
             <div className="relative bg-red-800 w-[13rem] h-[25rem] -rotate-12 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
-              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]" />
               <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu1} alt="Logo de naturchem" />
             </div>
             <div className="relative bg-red-800 w-[13rem] h-[25rem] rotate-6 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
               <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu2} alt="Logo de naturchem" />
-              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]" />
             </div>
             <div className="relative bg-red-800 w-[13rem] h-[25rem] -rotate-6 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
-              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]" />
               <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu3} alt="Logo de naturchem" />
             </div>
             <div className="relative bg-red-800 w-[13rem] h-[25rem] rotate-3 hover:rotate-0 transition-all rounded-xl overflow-hidden cursor-pointer">
-              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]"/>
+              <div className="bg-black h-full w-full absolute z-30 sm:bg-[#000000ab] bg-[#0000005e] hover:bg-[#0000005e]" />
               <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={Natu4} alt="Logo de naturchem" />
             </div>
           </div>
@@ -82,19 +83,20 @@ export default function Home() {
           <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto gap-4 flex flex-col sm:flex-row items-center">
             <div className="sm:w-[24rem] w-full flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Oferta especial</h4>
-              {GetData("Materia prima").documents.map((item, index) => (
-                  <CardProduct tate={2} item={item} key={index} />
-                ))}
+              {documents2.slice(0, 1).map((item, index) => (
+                <CardProduct tate={2} item={item} key={index} />
+              ))}
+              {documents2.length == 0 && <Skeleton className="h-[33.7rem] rounded-none w-full" />}
             </div>
             <div className="sm:w-[80%] flex flex-col p-4 gap-2 rounded-[8px] border bg-white">
               <h4 className='text-[20px] font-[600] w-full text-start text-black'>Mas pedidos</h4>
 
-              <div className="grid sm:grid-cols-4 grid-cols-2 gap-3"> 
+              <div className="grid sm:grid-cols-4 grid-cols-2 gap-3">
                 {documents.slice(0, 4).map((item, index) => (
                   <CardProduct tate={2} item={item} key={index} />
                 ))}
               </div>
-              {documents.length == 0 && <div className="grid sm:grid-cols-4 grid-cols-2 gap-3">
+              {documents.length == 0 && <div className="grid sm:grid-cols-3 grid-cols-2 xl:grid-cols-4 gap-3">
                 <Skeleton className="h-[33.7rem] rounded-none w-full" />
                 <Skeleton className="h-[33.7rem] rounded-none w-full" />
                 <Skeleton className="h-[33.7rem] rounded-none w-full" />

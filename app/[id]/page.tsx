@@ -7,6 +7,7 @@ import { Minus, Plus } from 'lucide-react'
 import { GetProduct } from '@/src/Hooks/GetProduct'
 import { useParams } from 'next/navigation'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 interface ProductType {
   nombre: string;
@@ -23,6 +24,7 @@ interface ProductType {
 
 const Products = () => {
   const path = useParams()
+  const router = useRouter()
   const [counter, setCounter] = useState<number>(1)
   const [selectedValue, setSelectedValue] = useState<string>("")
   const { product = {
@@ -114,6 +116,10 @@ const Products = () => {
                   setLocalData()
                   toast("Producto agregado al pedido", {
                     description: `${product?.nombre} x ${counter}`,
+                    action: {
+                      label: "Ver pedido",
+                      onClick: () => router.push("/car"),
+                    },
                   })
                 }
               }}>agregar al pedido</Button>

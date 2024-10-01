@@ -14,21 +14,21 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div>
+        <div className='w-[22rem]'>
           <h4 className='text-[17px] font-[600] w-full text-start text-black cursor-pointer'>Horarios</h4>
-          <div className='grid sm:grid-cols-2 grid-cols-1 gap-2'>
-          <div className='flex items-center flex-col sm:flex-row text-[14px]'>
-            <span>Lunes a Viernes</span>
-            <span>8:00a.m. - 4:30p.m.</span>
-           </div>
-           <div className='flex items-center flex-col sm:flex-row text-[14px]'>
-            <span>Sabados</span>
-            <span>8:00a.m. - 4:30p.m.</span>
-           </div>
-           <div className='flex items-center flex-col sm:flex-row text-[14px]'>
-            <span>Domingos</span>
-            <span>Cerrado</span>
-           </div>
+          <div>
+            <div className='flex items-center flex-row text-[14px] justify-between w-full'>
+              <span>Lunes a Viernes</span>
+              <span>8:00a.m. - 4:30p.m.</span>
+            </div>
+            <div className='flex items-center flex-row text-[14px] justify-between w-full'>
+              <span>Sabados</span>
+              <span>8:00a.m. - 4:30p.m.</span>
+            </div>
+            <div className='flex items-center flex-row text-[14px] justify-between w-full'>
+              <span>Domingos</span>
+              <span>Cerrado</span>
+            </div>
           </div>
         </div>
       </div>
