@@ -42,13 +42,13 @@ const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
 
             <div className='sm:px-5 px-2 py-5 flex flex-col gap-2 '>
                 <span className='text-[12px]'>{item.codigo}</span>
-                <h4 className={`text-[16px] font-[600] text-container`}>{item.nombre}</h4>
-                <p className={`text-[#000000e6] text-[12px] font-extralight h-[6rem] overflow-hidden ${tate == 2 && 'hidden sm:block'}`} >{item.descripcion}</p>
+                <h4 className={`text-[16px] sm:text-[1.2rem] font-[600] text-container`}>{item.nombre}</h4>
+                <p className={`text-[#000000e6] text-[12px] sm:text-[1rem] font-extralight h-[6rem] overflow-hidden ${tate == 2 && 'hidden sm:block'}`} >{item.descripcion}</p>
                 <div className='flex items-center justify-between'>
                     {Object.entries(item.Precios || {}).slice(0, 2).map(([key, value]: string[]) => (
                         <div key={key} className='flex items-center flex-col mb-2'>
-                            <span className='text-[12px] font-normal'>{key}</span>
-                            <span className='text-[14px] text-[#1c1c1c] font-extralight'>${value}</span>
+                            <span className='text-[12px] sm:text-[1rem] font-normal'>{key}</span>
+                            <span className='text-[14px] sm:text-[1rem] text-[#1c1c1c] font-extralight'>${value}</span>
                         </div>
                     ))}
                 </div>
@@ -57,7 +57,7 @@ const CardProduct: React.FC<CardProductProps> = ({ tate, item = {
             </div>
             <div className='sm:px-5 px-2 py-3 sm:py-5 border-t-2'>
                 <div className='flex items-center gap-2 text-[#23A6F0] justify-center'>
-                    <Link href={""} className='font-bold underline text-container text-[12px]'>Ver más sobre el producto</Link>
+                    <Link href={""} className='font-bold underline text-container text-[12px] sm:text-[1rem]'>Ver más sobre el producto</Link>
                     <ChevronRight />
                 </div>
             </div>

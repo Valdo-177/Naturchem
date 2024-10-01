@@ -27,8 +27,8 @@ export default function Home() {
           <div className="xl:w-[75rem] w-auto mx-auto p-5">
             <div className="flex flex-col items-center justify-between gap-5">
               <div className="flex items-center gap-3 flex-col">
-                <h2 className='text-xl font-[600] w-full text-center cursor-pointer text-fondo'>¿Quienes somos?</h2>
-                <p className="w-full sm:w-[45rem] text-sm text-[#000000d1] text-center">
+                <h2 className='text-2xl font-[600] w-full text-center cursor-pointer text-fondo'>¿Quienes somos?</h2>
+                <p className="w-full sm:w-[48rem] text-lg text-[#000000d1] text-center">
                   En <span className="underline cursor-pointer">Naturchem</span>, nos dedicamos a la fabricacion y distribucion de materias primas naturales, quimicas y materiales en general usados para la elaboracion de productos artesanales para sus emprendimientos.
                   <br />
                   Nuestro portafolio incluye insumos para elaboracion de jabones artesanales, velas de cera y parafina, resina, productos de aseo y limpieza, tratamiento de agua. tenemos un amplio catalogo de insumos de la mejor calidad para sus emprendimientos.
@@ -39,22 +39,22 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-fondo">
-          <div className="xl:w-[55rem] w-auto mx-auto p-5 flex flex-col sm:flex-row items-center justify-between">
-            <h3 className="text-white text-xl font-semibold w-[15rem]">Somos una compañia de caracter internacional</h3>
+          <div className="xl:w-[63rem] w-auto mx-auto p-5 flex flex-col sm:flex-row items-center justify-between">
+            <h3 className="text-white text-2xl w-[20rem]">Somos una compañia de caracter internacional</h3>
             <div className="flex items-center gap-4 text-white flex-col sm:flex-row">
               <div>
                 <span className="text-4xl">10</span>
-                <span className="text-sm">Años en otros paises</span>
+                <span className="text-lg">Años en otros paises</span>
               </div>
               <div className="w-[1px] h-[3rem] bg-[#ffffff2b] hidden sm:block" />
               <div>
                 <span className="text-4xl">A</span>
-                <span className="text-sm">mplia experiencia</span>
+                <span className="text-lg">mplia experiencia</span>
               </div>
               <div className="w-[1px] h-[3rem] bg-[#ffffff2b] hidden sm:block" />
               <div>
                 <span className="text-4xl">P</span>
-                <span className="text-sm">roveedor integral</span>
+                <span className="text-lg">roveedor integral</span>
               </div>
             </div>
           </div>

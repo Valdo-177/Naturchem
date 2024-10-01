@@ -167,8 +167,8 @@ const Nav = () => {
                         <Image src={logo1} width={40} height={40} alt="Logo de naturchem" onClick={() => roter.push('/')} />
                         <div className="hidden sm:flex items-center gap-2 text-fondo">
                             <div onClick={() => roter.push('/car')} className='flex items-center gap-2 cursor-pointer hover:underline'>
-                            <ShoppingCart size={16}/>
-                                <p className='text-sm'>Ver tu pedido</p>
+                            <ShoppingCart size={20}/>
+                                <p className='text-[17px]'>Ver tu pedido</p>
                             </div>
                             <Popover open={open} onOpenChange={setOpen}>
                                 <PopoverTrigger asChild>
@@ -176,7 +176,7 @@ const Nav = () => {
                                         variant="outline"
                                         role="combobox"
                                         aria-expanded={open}
-                                        className="w-[200px] text-sm font-normal justify-between text-container "
+                                        className="w-[200px] text-[17px] font-normal justify-between text-container "
                                     >
                                         {value
                                             ? categorias.find((categorias) => categorias.value === value)?.label
