@@ -2,6 +2,7 @@
 import { Skeleton } from '@/components/ui/skeleton'
 import CardProduct from '@/src/components/CardProduct'
 import GetData from '@/src/Hooks/GetData'
+import { generatePageMetadata } from '@/src/metadata/generatePageMetadata'
 import { ChevronRight } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
@@ -18,7 +19,6 @@ const Category = () => {
   function desencriptarCadena(cadena: string) {
     return decodeURIComponent(cadena.replace(/%20/g, ' '));
   }
-
 
   return (
     <>
