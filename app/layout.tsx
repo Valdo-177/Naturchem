@@ -5,7 +5,7 @@ import Footer from "@/src/components/Footer";
 import { Toaster } from "@/components/ui/sonner"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { generatePageMetadata } from "@/src/metadata/generatePageMetadata";
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 import { homeMetadataEs } from '@/src/models';
 
 const inter = Inter({
@@ -19,8 +19,6 @@ export interface Props {
 }
 
 export const generateMetadata = async (
-  { params: { locale } }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> =>
   generatePageMetadata(homeMetadataEs);
 

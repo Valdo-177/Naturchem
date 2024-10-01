@@ -2,7 +2,6 @@
 import { Skeleton } from '@/components/ui/skeleton'
 import CardProduct from '@/src/components/CardProduct'
 import GetData from '@/src/Hooks/GetData'
-import { generatePageMetadata } from '@/src/metadata/generatePageMetadata'
 import { ChevronRight } from 'lucide-react'
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
