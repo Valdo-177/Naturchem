@@ -1,4 +1,4 @@
-import { Inter } from '@next/font/google'
+import { Rubik } from '@next/font/google'
 import "./globals.css";
 import Nav from "@/src/components/Nav";
 import Footer from "@/src/components/Footer";
@@ -8,7 +8,7 @@ import { generatePageMetadata } from "@/src/metadata/generatePageMetadata";
 import type { Metadata } from "next";
 import { homeMetadataEs } from '@/src/models';
 
-const inter = Inter({
+const rubik = Rubik({
   subsets: ['latin'],
   display: 'swap',
 })
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${inter.className} bg-[#EBEBEB] min-h-[100vh]`}
+        className={`${rubik.className} bg-[#EBEBEB] min-h-[100vh] text-[#3c3c3c]`}
       >
         <Nav />
         {children}

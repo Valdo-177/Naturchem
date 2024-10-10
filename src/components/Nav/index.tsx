@@ -105,9 +105,7 @@ const Nav = () => {
                                     href={`/Category/${item}`}
                                     // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
                                     className={cn(`flex gap-x-2 mt-2 text-black text-sm items-center rounded-lg p-2 cursor-pointer ${desencriptarCadena(id) == item && "bg-slate-300/20"}`
-
-                                    )}
-                                >
+                                    )}>
                                     <Dot className='h-5 w-5' strokeWidth={1} />
                                     {item}
                                 </Link>
@@ -138,37 +136,37 @@ const Nav = () => {
     return (
         <>
             <header className="bg-fondo">
-                <section className="hidden sm:block px-5 sm:px-10 py-2">
+                <section className="text-white hidden sm:block px-5 sm:px-10 py-2">
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2">
                         <div className="flex flex-col sm:flex-row items-center sm:gap-7 gap-3" >
                             <div className="flex items-center gap-2">
                                 <Phone size={16} strokeWidth={1.6}/>
-                                <p className='text-sm font-extralight'>0000000000</p>
+                                <Link href="tel:3244762384" className='text-[16px] font-normal'>324 4762384</Link>
                             </div>
                             <div className="flex items-center gap-2" >
                                 <Mail size={16} strokeWidth={1.6}/>
-                                <p className='text-sm font-extralight'>correodeeelos@gmail.com</p>
+                                <p className='text-[16px] font-normal'>correodeeelos@gmail.com</p>
                             </div>
                         </div>
                         <div>
-                            <h3 className="font-extralight text-sm text-center">Síguenos y no te pierdas la oportunidad de ganar descuentos</h3>
+                            <h3 className="text-[16px] font-normal">Síguenos y no te pierdas la oportunidad de ganar descuentos</h3>
                         </div>
                         <div className="flex items-center gap-6" >
-                            <p className='text-sm font-extralight'>Síguenos:</p>
+                            <p className='text-[16px] font-normal'>Síguenos:</p>
                             <a href="https://www.instagram.com/naturchem.oficial/" target='_blank' className="flex items-center gap-2" >
                                 <Instagram size={16} strokeWidth={1.6}/>
-                                <p className='text-sm font-extralight'>naturchem.oficial</p>
+                                <p className='text-[16px] font-normal'>naturchem.oficial</p>
                             </a>
                         </div>
                     </div>
                 </section>
-                <section className="bg-[#EBEBEB] text-black px-5 py-5 sm:px-10 sm:py-2">
+                <section className="bg-[#282828] text-black px-5 py-5 sm:px-10 sm:py-2">
                     <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex items-center justify-between">
                         <Image src={logo1} width={40} height={40} alt="Logo de naturchem" onClick={() => roter.push('/')} />
                         <div className="hidden sm:flex items-center gap-2 text-fondo">
                             <div onClick={() => roter.push('/car')} className='flex items-center gap-2 cursor-pointer hover:underline'>
                             <ShoppingCart size={20}/>
-                                <p className='text-[17px]'>Ver tu pedido</p>
+                                <p className='text-[16px]'>Ver tu pedido</p>
                             </div>
                             <Popover open={open} onOpenChange={setOpen}>
                                 <PopoverTrigger asChild>
@@ -176,7 +174,7 @@ const Nav = () => {
                                         variant="outline"
                                         role="combobox"
                                         aria-expanded={open}
-                                        className="w-[200px] text-[17px] font-normal justify-between text-container "
+                                        className="w-[200px] border-none text-[16px] font-normal justify-between text-container "
                                     >
                                         {value
                                             ? categorias.find((categorias) => categorias.value === value)?.label
@@ -215,7 +213,7 @@ const Nav = () => {
                                 </PopoverContent>
                             </Popover>
                         </div>
-                        <div className='sm:hidden'>
+                        <div className='sm:hidden text-white'>
                             <Sheet open={isOpen} onOpenChange={handleOpenChange}>
                                 <SheetTrigger className="flex items-center">
                                     <Menu onClick={() => setIsOpen(true)} />

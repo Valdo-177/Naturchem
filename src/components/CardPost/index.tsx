@@ -1,13 +1,13 @@
 import React from 'react'
-import product from '../../assets/section1.png'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 
 interface CardPostProps {
-    item?: {
+    item: {
         label: string;
         subTitle: string;
+        img: string;
     }
 }
 
@@ -15,7 +15,7 @@ const CardPost = ({item}:CardPostProps) => {
     const router = useRouter()
     return (
         <article className='relative overflow-hidden h-full text-white rounded-[8px]'>
-            <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={product} alt="Logo de naturchem" />
+            <Image className='w-[100%] h-[100%] absolute object-cover z-10' src={item?.img} width={500} height={500} alt="Logo de naturchem" />
             <div className='absolute z-20 bg-[#23232378] w-full h-full'></div>
             <div className='absolute z-30 top-3 left-3 w-[80%] py-3 h-[90%] flex flex-col items-start justify-between'>
                 <div className='flex flex-col items-start'>
