@@ -116,6 +116,7 @@ const Car = () => {
                           id="numberCeluar"
                           defaultValue={numero}
                           className="col-span-3"
+                          onChange={({ target: { value } }) => onChange(value, 'numero')}
                         />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
@@ -124,6 +125,7 @@ const Car = () => {
                           id="Correo"
                           defaultValue={correo}
                           className="col-span-3"
+                          onChange={({ target: { value } }) => onChange(value, 'correo')}
                         />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
@@ -132,6 +134,7 @@ const Car = () => {
                           id="Ciudad"
                           defaultValue={ciudad}
                           className="col-span-3"
+                          onChange={({ target: { value } }) => onChange(value, 'ciudad')}
                         />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
@@ -140,6 +143,7 @@ const Car = () => {
                           id="identificación"
                           defaultValue={identificacion}
                           className="col-span-3"
+                          onChange={({ target: { value } }) => onChange(value, 'identificacion')}
                         />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
@@ -148,6 +152,7 @@ const Car = () => {
                           id="Dirección"
                           defaultValue={direccion}
                           className="col-span-3"
+                          onChange={({ target: { value } }) => onChange(value, 'direccion')}
                         />
                       </div>
                     </div>

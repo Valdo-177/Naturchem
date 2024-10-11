@@ -105,10 +105,10 @@ export default function Home() {
           </div>
         </section>
         <section className="bg-[#EBEBEB] text-black mt-[4rem]">
-          <div className="xl:w-[75rem] w-auto mx-auto p-5">
+          <div className="xl:w-[75rem] w-auto my-10 mx-auto p-5">
             <div className="flex flex-col items-center justify-between gap-5">
               <div className="flex items-center gap-3 flex-col">
-                <div className="flex items-center gap-3 sm:flex-row flex-col">
+                <div className="flex items-center gap-20 flex-col">
                 <div>
                 <h2 className='sm:text-4xl text-3xl font-[600] w-full text-center cursor-pointer text-fondo'>Misión</h2>
                   <p className="w-full sm:w-[48rem] sm:text-[1.3rem] text-[#000000d1] text-center">
