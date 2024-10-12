@@ -48,7 +48,7 @@ const Car = () => {
       return `Nombre%20del%20producto:%20*${producto.nombre}*%0aPrecio%20Total:%20*$${producto.precio}*%0aPrecio%20Unidad:%20*$${producto.precioUni}*%0aCantidad:%20${producto.cantidad}%0aPresentación:%20${producto.tamaño}%0a`;
     })
     .join(" %0a");
-  const Url = `https://wa.me/3128158494?text=Datos%20personales%0aNombre:%20*${name}*%0aNúmero%20de%20identificación:%20*${identificacion}*%0aCorreo%20electrónico:%20*${correo}*%0aCiudad:%20*${ciudad}*%0aDirección:%20*${direccion}*%0a-----------------------%0a%0a${mensajeWhatsApp}`;
+  const Url = `https://wa.me/3244762384?text=Datos%20personales%0aNombre:%20*${name}*%0aNúmero%20de%20identificación:%20*${identificacion}*%0aCorreo%20electrónico:%20*${correo}*%0aCiudad:%20*${ciudad}*%0aDirección:%20*${direccion}*%0a-----------------------%0a%0a${mensajeWhatsApp}`;
 
   const eliminarElemento = (indiceEliminar: number) => {
     console.log(indiceEliminar);
