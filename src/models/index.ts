@@ -5,6 +5,8 @@ import materia from '../assets/Materiaprima.jpg'
 import env from '../assets/emv.jpg'
 import Accesorios from '../assets/Accesorios.png'
 import accesorios from '../assets/acesorios.png'
+import Banner1 from '../assets/Banner_Naturchem1.png'
+import Banner2 from '../assets/Banner_Naturchem2.png'
 
 
 export const homeMetadataEs: ITempMetadata = {
@@ -193,11 +195,11 @@ export const CategorySection = [
 
 export const BannerHome:IBanners[] = [
     {
-        img: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/Banner_Naturchem1.png?alt=media&token=ebb25901-b84b-4120-900c-bbc22a661ee2',
+        img: Banner1.src,
         url: '/Category/Modelos-Envases'
     },
     {
-        img: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/Banner_Naturchem2.png?alt=media&token=892ad3d1-67f4-47ca-a7fb-924064dc8ff1',
+        img: Banner2.src,
         url: '/Category/Aceite%20esencial'
     },
 ]
