@@ -4,7 +4,6 @@ import CardProduct from "@/src/components/CardProduct";
 import CardPost from "@/src/components/CardPost";
 import GetData from "@/src/Hooks/GetData";
 import CarouselComponent from "@/src/components/Carousel";
-import { CategorySection } from "@/lib/Data";
 import Image from "next/image";
 import Natu1 from "../src/assets/Natu1.jpeg"
 import Natu2 from "../src/assets/Natu2.jpeg"
@@ -16,6 +15,7 @@ import image2 from '../src/assets/IMG_4436.png'
 import image3 from '../src/assets/IMG_4471.png'
 import image4 from '../src/assets/IMG_4487.png'
 import nad from '../src/assets/nad.png'
+import { BannerHome, CategorySection } from "@/src/models";
 
 export default function Home() {
   const { documents } = GetData("Aceite esencial");
@@ -128,7 +128,7 @@ export default function Home() {
         </section>
         <section className="bg-[#EBEBEB] text-black">
           <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[22rem] w-full px-2 mx-auto">
-            <CarouselComponent />
+            <CarouselComponent Banners={BannerHome}/>
           </div>
         </section>
         <section className="bg-[#EBEBEB] text-black px-2 py-5 sm:px-10 sm:py-5 ">
@@ -195,7 +195,7 @@ export default function Home() {
         </section>
         <section className="bg-[#EBEBEB] text-black">
           <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[22rem] w-full px-2 mx-auto">
-            <CarouselComponent />
+            <CarouselComponent Banners={BannerHome}/>
           </div>
         </section>
 

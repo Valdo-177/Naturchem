@@ -10,11 +10,22 @@ import { toast } from 'sonner'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import useForm from '@/src/Hooks/UseFrom'
+import { BannerHome } from '@/src/models'
 
+interface ProductType {
+  cantidad: number;
+  codigo: string;
+  descripcion: string;
+  imagen: string;
+  nombre: string;
+  precio: number;
+  precioUni: number;
+  tamaño: string;
+}
 
 
 const Car = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState<ProductType[]>([])
   const [infoData, setInfoData] = useState(true)
   const [state, setState] = useState(false)
   const router = useRouter();
@@ -42,9 +53,9 @@ const Car = () => {
     }
   }, [])
 
+  const precioTotal = data.reduce((total, producto) => total + producto.precio, 0);
   const mensajeWhatsApp = data
     .map((producto) => {
-      // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
       return `Nombre%20del%20producto:%20*${producto.nombre}*%0aPrecio%20Total:%20*$${producto.precio}*%0aPrecio%20Unidad:%20*$${producto.precioUni}*%0aCantidad:%20${producto.cantidad}%0aPresentación:%20${producto.tamaño}%0a`;
     })
     .join(" %0a");
@@ -72,20 +83,29 @@ const Car = () => {
       handleLoading(false)
     }, 100);
   }
+
+  const format = (numero:number) =>  numero.toLocaleString('es-CO', {
+    style: 'currency',
+    currency: 'COP'
+  });
+
   return (
 
     <>
       <LoadingComponent show={state} />
       <section className="bg-[#EBEBEB] text-black">
         <div className="2xl:w-[90rem] xl:w-full sm:h-[27rem] h-[22rem] w-full px-2 mx-auto">
-          <CarouselComponent />
+          <CarouselComponent Banners={BannerHome}/>
         </div>
       </section>
       <section className="bg-[#EBEBEB] text-black px-2 py-5 sm:px-10 sm:py-5">
         <div className="2xl:w-[90rem] xl:w-[75rem] w-auto mx-auto flex items-center justify-center flex-col gap-3">
           <div className='flex-col flex items-center w-full gap-1'>
-            <div className="w-full flex sm:p-4 gap-2 rounded-tl-[8px] items-center rounded-tr-[8px] border px-4 py-2 bg-white">
-              <h4 className='text-[20px] font-[600] w-full text-start text-black'>Carro de compras</h4>
+            <div className="w-full flex sm:p-4 gap-2 rounded-tl-[8px] items-center justify-between rounded-tr-[8px] border px-4 py-2 bg-white">
+              <div>
+                <h4 className='text-[20px] font-[600] w-full text-black'>Carro de compras</h4>
+                <p className='text-[16px] font-[400] w-full text-black'>Total a pagar: <span className='font-[500]'>{format(precioTotal)}</span></p>
+              </div>
               <div>
                 <Dialog>
                   <DialogTrigger asChild>
@@ -98,6 +118,8 @@ const Car = () => {
                       <DialogTitle>Ultimo paso antes de enviar tu pedido</DialogTitle>
                       <DialogDescription>
                         Completa cuidadosamente el formulario con toda la información solicitada. Verifica que todos los campos estén llenados correctamente y que no haya errores. Una vez seguro de que has proporcionado todos los detalles necesarios, ya estamos listos para recibir tu pedido
+                        <br />
+                        <span className='text-[16px] font-medium text-black'>Antes de enviar, recuerda que el pedido es sin domicilio</span>
                       </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">

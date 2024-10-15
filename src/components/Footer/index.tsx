@@ -1,4 +1,4 @@
-import { Category } from '@/lib/Data'
+import { Category } from '@/src/models'
 import Link from 'next/link'
 import React from 'react'
 
@@ -23,7 +23,7 @@ const Footer = () => {
             </div>
             <div className='flex items-center flex-row text-[14px] justify-between w-full'>
               <span>Sabados</span>
-              <span>8:00a.m. - 4:30p.m.</span>
+              <span>8:00a.m. - 1:00p.m.</span>
             </div>
             <div className='flex items-center flex-row text-[14px] justify-between w-full'>
               <span>Domingos</span>

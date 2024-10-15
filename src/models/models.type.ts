@@ -12,3 +12,8 @@ export interface ICategorytCard {
     keywords: string[];
     urlImage: string;
 }
+
+export interface IBanners {
+    img: string;
+    url: string;
+}

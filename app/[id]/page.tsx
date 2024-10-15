@@ -27,17 +27,8 @@ const Products = () => {
   const router = useRouter()
   const [counter, setCounter] = useState<number>(1)
   const [selectedValue, setSelectedValue] = useState<string>("")
-  const { product = {
-    nombre: 'Producto de Prueba',
-    descripcion: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, quibusdam! Repudiandae maiores natus dolorum et officia repellat commodi vitae, officiis nisi optio sed dolore mollitia ratione necessitatibus esse veniam explicabo.',
-    codigo: '1234',
-    imagen: 'https://firebasestorage.googleapis.com/v0/b/naturchem-6f313.appspot.com/o/PXL_20240917_120238868.jpg?alt=media&token=9838de18-78b5-4dc1-8611-17e67351290d',
-    Precios: {
-      "Precio X Mayor": "13.000"
-    },
-    id: "siohdkhsduhsdj"
-    // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
-  } } = GetProduct(path.id)
+  // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
+  const { product } = GetProduct(path.id)
   const valoorPrice = selectedValue.split('/')
 
   const addCounter = (date: string) => {
@@ -92,6 +83,8 @@ const Products = () => {
       return null;
     }
   };
+  // @ts-expect-error TS2614: Property 'Precios' is missing in type 'Product'.
+  const cantidad_minima = Object.keys(product.Precios).some(key => /precio/i.test(key)) && ',cantidad minima al por mayor: 20Kg'
 
   return (
     <>
@@ -104,8 +97,8 @@ const Products = () => {
             <span className='text-[0.7rem] sm:text-[0.8rem]'>{product?.codigo}</span>
             <h4 className='text-[25px] font-[600] w-full text-start text-black cursor-pointer'>{product?.nombre}</h4>
             <p className={`text-[#000000e6] sm:text-[1rem] text-[15px] font-light overflow-hidden sm:w-[30rem]`} >{product?.descripcion}</p>
-            <p className={`text-[#000000e6] sm:text-[1rem] text-[12px] font-normal overflow-hidden sm:w-[30rem]`} >Selecciona la presentacion del producto</p>
-            <div className='flex items-center justify-center w-full sm:w-auto'>
+            <p className={`text-[#000000e6] sm:text-[1rem] text-[12px] font-normal overflow-hidden sm:w-[30rem]`} >Selecciona la presentacion del producto {cantidad_minima}</p>
+            <div className='flex items-center justify-center w-full sm:w-auto mt-3'>
               <ItemPrice selectedValue={selectedValue} setSelectedValue={setSelectedValue} productPrice={product?.Precios || { "": "" }} />
             </div>
             <div className='mt-5 flex items-center justify-between sm:justify-normal gap-3 w-full sm:w-auto'>
