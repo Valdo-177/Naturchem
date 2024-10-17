@@ -79,7 +79,7 @@ const Car = () => {
   const handlePedidos = () => {
     handleLoading(true)
     setTimeout(() => {
-      router.push(Url)
+      router.push(Url + `%0aTotal%20a%20pagar:%20*${format(precioTotal)}*`)
       handleLoading(false)
     }, 100);
   }
